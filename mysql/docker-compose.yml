@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  database:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'huimingz'
+      MYSQL_PASSWORD: '731353600'
+      MYSQL_ROOT_PASSWORD: '15281218480'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql-data:/var/lib.mysql
+      - ./conf.d/:/etc/mysql/conf.d
+volumes:
+  mysql-data:
+    driver: local
